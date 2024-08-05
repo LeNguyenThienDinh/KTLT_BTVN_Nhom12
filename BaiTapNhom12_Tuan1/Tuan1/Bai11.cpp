@@ -93,6 +93,21 @@ void chuyenSoChanLenDauSoLeXuongCuoi(int*& a, int n) {
     xuatM1C_SoNguyen_b11(a, n);
 }
 
+void kiemTraMangCoChuaChanLeXenKe(int* a, int n) {
+    int chan_le_xen_ke = 1;
+    for (int i = 0; i < n - 1; i++) {
+        if ((a[i] % 2 == 0 && a[i + 1] % 2 == 0) || (a[i] % 2 != 0 && a[i + 1] % 2 != 0)) {
+            chan_le_xen_ke = 0;
+            break;
+        }
+    }
+    if (chan_le_xen_ke) {
+        printf("\nd. Mang chua chan le xen ke");
+    }
+    else {
+        printf("\nd. Mang khong chua chan le xen ke");
+    }
+}
 
 void bai11() {
     int* a;
