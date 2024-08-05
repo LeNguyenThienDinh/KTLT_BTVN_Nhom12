@@ -59,6 +59,25 @@ void thucThiXoaPhanTuTaiViTriK(int*& a, int& n, int k) {
     xuatM1C_SoNguyen_b11(a, n);
 }
 
+void themPhanTuTaiViTriK(int*& a, int& n, int k, int x) {
+    if (k < 0 || k > n) {
+        printf("Vi tri k khong hop le.\n");
+        return;
+    }
+    n++;
+    a = (int*)realloc(a, n * sizeof(int));
+    if (a == NULL) {
+        printf("Cap phat bo nho that bai\n");
+        exit(1);
+    }
+    for (int i = n - 1; i > k; i--) {
+        a[i] = a[i - 1];
+    }
+    a[k] = x;
+    printf("\nb. Mang sau khi them phan tu %d tai vi tri %d la: \n", x, k);
+    xuatM1C_SoNguyen_b11(a, n);
+}
+
 void bai11() {
     int* a;
     int n = 10;
