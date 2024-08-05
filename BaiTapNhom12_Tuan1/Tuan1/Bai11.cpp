@@ -78,6 +78,22 @@ void themPhanTuTaiViTriK(int*& a, int& n, int k, int x) {
     xuatM1C_SoNguyen_b11(a, n);
 }
 
+void chuyenSoChanLenDauSoLeXuongCuoi(int*& a, int n) {
+    int i = 0, j = n - 1;
+    while (i < j) {
+        while (a[i] % 2 == 0 && i < j) i++;
+        while (a[j] % 2 != 0 && i < j) j--;
+        if (i < j) {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+    printf("\nc. Mang sau khi chuyen so chan len dau, so le xuong cuoi la: \n");
+    xuatM1C_SoNguyen_b11(a, n);
+}
+
+
 void bai11() {
     int* a;
     int n = 10;
