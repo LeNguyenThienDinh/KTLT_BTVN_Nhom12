@@ -60,6 +60,22 @@ void timPhanSoNhoNhat(PhanSo* arr, int n) {
     printf("Phan so nho nhat la: %d/%d\n", min.tu, min.mau);
 }
 
+void xoaPhanTuTaiViTriK(PhanSo*& arr, int& n, int k) {
+    if (k < 0 || k >= n) {
+        printf("Vi tri k khong hop le.\n");
+        return;
+    }
+    for (int i = k; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    n--;
+    arr = (PhanSo*)realloc(arr, n * sizeof(PhanSo));
+    if (arr == NULL && n > 0) {
+        printf("Cap phat bo nho that bai\n");
+        exit(1);
+    }
+}
+
 void bai12() {
     PhanSo* arr;
     int n;
