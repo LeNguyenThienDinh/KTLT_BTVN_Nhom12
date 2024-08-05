@@ -195,6 +195,31 @@ void sapXepTangDanTungDong(int **mt, int m, int n)
 	}
 }
 
+void xuatCacCotChiChuaSoLe(int **mt, int m, int n)
+{
+	printf("Cac cot chi chua so le:\n");
+	for (int j = 0; j < n; ++j)
+	{
+		bool chiChuaSoLe = true;
+		for (int i = 0; i < m; ++i)
+		{
+			if (mt[i][j] % 2 == 0)
+			{
+				chiChuaSoLe = false;
+				break;
+			}
+		}
+		if (chiChuaSoLe)
+		{
+			for (int i = 0; i < m; ++i)
+			{
+				printf("%d ", mt[i][j]);
+			}
+			printf("\n");
+		}
+	}
+}
+
 //============================xu_li_main
 int main()
 {
@@ -228,19 +253,25 @@ int main()
 	{
 		printf("==========chuc nang===========\n");
 		printf("1.tao ma tran ngau nhien \n");
-		printf("2.Tinh tong gia tri tung dong \n");
-		printf("3.Tim max cot \n");
-		printf("4.Hien thi cac phan tu thuoc bien \n");
-		printf("5.Tim phan tu cuc dai \n");
-		printf("6.Xuat cac phan tu hoang hau \n");
-		printf("7.Xuat cac phan tu yen ngua \n");
-		printf("8.Tim dong toan chan\n");
-		printf("9.Sap xep mang A tang theo tung dong\n");
-		printf("10. thoat chuong trinh\n");
+		//printf("2.Tinh tong gia tri tung dong \n");
+		//printf("3.Tim max cot \n");
+		//printf("4.Hien thi cac phan tu thuoc bien \n");
+		//printf("5.Tim phan tu cuc dai \n");
+		//printf("6.Xuat cac phan tu hoang hau \n");
+		//printf("7.Xuat cac phan tu yen ngua \n");
+		//printf("8.Tim dong toan chan\n");
+		//printf("9.Sap xep mang A tang theo tung dong\n");
+		printf("10. Xuat cac cot chi chua so le\n");
+		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
 		switch (chon)
 		{
+		case 0:
+			giaiPhongMtran(mt, m);
+			printf("Thoat chuong trinh\n");
+			exit(0);
+		
 		case 1:
 			taoMaTran(mt, m, n, thap, cao);
 			printf("Ma tran la: \n");
@@ -271,8 +302,7 @@ int main()
 			xuatMatran(mt, m, n);
 			break;
 		case 10:
-			giaiPhongMtran(mt, m);
-			printf("Thoat chuong trinh\n");
+			xuatCacCotChiChuaSoLe(mt, m, n);
 			break;
 		}
 	}
