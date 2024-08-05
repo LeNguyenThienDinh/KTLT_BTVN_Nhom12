@@ -49,6 +49,16 @@ void xoaPhanTuTaiViTriK(int*& a, int& n, int k) {
     }
 }
 
+void thucThiXoaPhanTuTaiViTriK(int*& a, int& n, int k) {
+    if (k < 0 || k >= n) {
+        printf("Vi tri k khong hop le.\n");
+        return;
+    }
+    xoaPhanTuTaiViTriK(a, n, k);
+    printf("\nb. Mang sau khi xoa phan tu tai vi tri %d la: \n", k);
+    xuatM1C_SoNguyen_b11(a, n);
+}
+
 void bai11() {
     int* a;
     int n = 10;
