@@ -278,6 +278,34 @@ int demPhanTuCoChuSo2(int **mt, int m, int n)
 	}
 	return dem;
 }
+
+bool kiemTraCucTieu(int **mt, int m, int n, int i, int j)
+{
+	int giaTri = mt[i][j];
+	if ((i > 0 && mt[i - 1][j] <= giaTri) ||
+		(i < m - 1 && mt[i + 1][j] <= giaTri) ||
+		(j > 0 && mt[i][j - 1] <= giaTri) ||
+		(j < n - 1 && mt[i][j + 1] <= giaTri))
+	{
+		return false;
+	}
+	return true;
+}
+
+void xuatPhanTuCucTieu(int **mt, int m, int n)
+{
+	printf("Cac phan tu cuc tieu cua ma tran:\n");
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			if (kiemTraCucTieu(mt, m, n, i, j))
+			{
+				printf("%d (%d, %d)\n", mt[i][j], i, j);
+			}
+		}
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -322,6 +350,7 @@ int main()
 		printf("10. Xuat cac cot chi chua so le\n");
 		printf("11. Tim phan tu max cua bien ma tran \n");
 		printf("12. Dem so phan tu co chu so 2 trong chu so cua no: \n");
+		printf("13. In phan tu cuc tieu \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -370,6 +399,10 @@ int main()
 		case 12:
 			printf("So phan tu co chu so 2 la: %d\n", demPhanTuCoChuSo2(mt, m, n));
 			break;
+		case 13:
+			xuatPhanTuCucTieu(mt, m, n);
+			break;
+
 		}
 	}
 }
