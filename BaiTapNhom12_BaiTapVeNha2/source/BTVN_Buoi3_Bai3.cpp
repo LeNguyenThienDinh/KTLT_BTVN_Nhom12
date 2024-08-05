@@ -251,6 +251,33 @@ int timMaxTrenBien(int **mt, int m, int n)
 	return maxBien;
 }
 
+bool chuaChuSo2(int num)
+{
+	while (num != 0)
+	{
+		if (num % 10 == 2)
+		{
+			return true;
+		}
+		num /= 10;
+	}
+	return false;
+}
+int demPhanTuCoChuSo2(int **mt, int m, int n)
+{
+	int dem = 0;
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			if (chuaChuSo2(mt[i][j]))
+			{
+				++dem;
+			}
+		}
+	}
+	return dem;
+}
 //============================xu_li_main
 int main()
 {
@@ -294,6 +321,7 @@ int main()
 		//printf("9.Sap xep mang A tang theo tung dong\n");
 		printf("10. Xuat cac cot chi chua so le\n");
 		printf("11. Tim phan tu max cua bien ma tran \n");
+		printf("12. Dem so phan tu co chu so 2 trong chu so cua no: \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -338,6 +366,9 @@ int main()
 			break;
 		case 11:
 			printf("Phan tu lon nhat tren bien ma tran la: %d\n", timMaxTrenBien(mt, m, n));
+			break;
+		case 12:
+			printf("So phan tu co chu so 2 la: %d\n", demPhanTuCoChuSo2(mt, m, n));
 			break;
 		}
 	}
