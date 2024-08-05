@@ -30,6 +30,16 @@ void giaiPhongBoNho(char* st) {
     free(st);
     st = NULL;
 }
+void chuyenChuoiInHoa(char* st) {
+    for (int i = 0; st[i] != '\0'; i++) {
+        if (st[i] >= 'a' && st[i] <= 'z') {
+            st[i] = st[i] - ('a' - 'A');
+        }
+    }
+
+    printf("\nb. Chuoi sau khi chuyen thanh chu hoa: ");
+    xuatChuoiConTro(st);
+}
 
 void bai10() {
     char* st = (char*)malloc(100 * sizeof(char));
