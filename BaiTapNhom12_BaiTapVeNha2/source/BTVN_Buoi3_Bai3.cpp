@@ -419,6 +419,28 @@ bool kiemTraZigzag(int **mt, int m, int n)
 	}
 	return true;
 }
+
+void lietKeDongToanGiaTriChan(int **mt, int m, int n)
+{
+	printf("Chi so cac dong chua toan gia tri chan la: \n");
+	for (int i = 0; i < m; ++i)
+	{
+		bool toanGiaTriChan = true;
+		for (int j = 0; j < n; ++j)
+		{
+			if (mt[i][j] % 2 != 0)
+			{
+				toanGiaTriChan = false;
+				break;
+			}
+		}
+		if (toanGiaTriChan)
+		{
+			printf("%d\n", i);
+		}
+	}
+}
+
 //============================xu_li_main
 int main()
 {
@@ -467,6 +489,7 @@ int main()
 		printf("14. Sap xep ma tran cho dong le tang dong chan giam \n");
 		printf("15. Sap xep ma tran cho cot le tang cot chan giam \n");
 		printf("16. Kiem tra dong cot giam dan theo ziczac \n");
+		printf("17. Liet ke dong toan gia tri chan \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -537,6 +560,9 @@ int main()
 			{
 				printf("Ma tran khong giam dan theo cot va dong (zigzag)\n");
 			}
+			break;
+		case 17:
+			lietKeDongToanGiaTriChan(mt, m, n);
 			break;
 		}
 	}
