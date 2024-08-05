@@ -306,6 +306,53 @@ void xuatPhanTuCucTieu(int **mt, int m, int n)
 		}
 	}
 }
+
+void sapXepDongTangDan(int *dong, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (dong[i] > dong[j])
+			{
+				int temp = dong[i];
+				dong[i] = dong[j];
+				dong[j] = temp;
+			}
+		}
+	}
+}
+
+void sapXepDongGiamDan(int *dong, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (dong[i] < dong[j])
+			{
+				int temp = dong[i];
+				dong[i] = dong[j];
+				dong[j] = temp;
+			}
+		}
+	}
+}
+
+void sapXepMaTran(int **mt, int m, int n)
+{
+	for (int i = 0; i < m; ++i)
+	{
+		if (i % 2 == 0)
+		{
+			sapXepDongGiamDan(mt[i], n);
+		}
+		else
+		{
+			sapXepDongTangDan(mt[i], n);
+		}
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -351,6 +398,7 @@ int main()
 		printf("11. Tim phan tu max cua bien ma tran \n");
 		printf("12. Dem so phan tu co chu so 2 trong chu so cua no: \n");
 		printf("13. In phan tu cuc tieu \n");
+		printf("14. Sap xep ma tran cho dong le tang dong chan giam \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -402,7 +450,11 @@ int main()
 		case 13:
 			xuatPhanTuCucTieu(mt, m, n);
 			break;
-
+		case 14:
+			sapXepMaTran(mt, m, n);
+			printf("Ma tran sau khi sap xep la:\n");
+			xuatMatran(mt, m, n);
+			break;
 		}
 	}
 }
