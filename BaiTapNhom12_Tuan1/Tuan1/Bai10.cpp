@@ -40,6 +40,20 @@ void chuyenChuoiInHoa(char* st) {
     printf("\nb. Chuoi sau khi chuyen thanh chu hoa: ");
     xuatChuoiConTro(st);
 }
+void chuyenKyTuInHoaSauKhoangTrang(char* st) {
+    if (st[0] >= 'a' && st[0] <= 'z') {
+        st[0] -= ('a' - 'A');
+    }
+
+    for (int i = 1; st[i] != '\0'; i++) {
+        if (st[i] == ' ' && st[i + 1] >= 'a' && st[i + 1] <= 'z') {
+            st[i + 1] -= ('a' - 'A');
+        }
+    }
+
+    printf("\nc. Chuoi sau khi chuyen ky tu dau tien cua moi tu thanh chu hoa: ");
+    xuatChuoiConTro(st);
+}
 
 void bai10() {
     char* st = (char*)malloc(100 * sizeof(char));
