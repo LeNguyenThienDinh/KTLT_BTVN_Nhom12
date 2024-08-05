@@ -37,6 +37,18 @@ void xuatSoCucTieu(int* a, int n) {
     }
 }
 
+void xoaPhanTuTaiViTriK(int*& a, int& n, int k) {
+    for (int i = k; i < n - 1; i++) {
+        a[i] = a[i + 1];
+    }
+    n--;
+    a = (int*)realloc(a, n * sizeof(int));
+    if (a == NULL && n > 0) {
+        printf("Cap phat bo nho that bai\n");
+        exit(1);
+    }
+}
+
 void bai11() {
     int* a;
     int n = 10;
