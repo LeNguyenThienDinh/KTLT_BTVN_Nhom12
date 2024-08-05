@@ -74,7 +74,7 @@ void themPhanTuTaiViTriK(int*& a, int& n, int k, int x) {
         a[i] = a[i - 1];
     }
     a[k] = x;
-    printf("\nb. Mang sau khi them phan tu %d tai vi tri %d la: \n", x, k);
+    printf("\nc. Mang sau khi them phan tu %d tai vi tri %d la: \n", x, k);
     xuatM1C_SoNguyen_b11(a, n);
 }
 
@@ -89,7 +89,7 @@ void chuyenSoChanLenDauSoLeXuongCuoi(int*& a, int n) {
             a[j] = temp;
         }
     }
-    printf("\nc. Mang sau khi chuyen so chan len dau, so le xuong cuoi la: \n");
+    printf("\nd. Mang sau khi chuyen so chan len dau, so le xuong cuoi la: \n");
     xuatM1C_SoNguyen_b11(a, n);
 }
 
@@ -102,10 +102,10 @@ void kiemTraMangCoChuaChanLeXenKe(int* a, int n) {
         }
     }
     if (chan_le_xen_ke) {
-        printf("\nd. Mang chua chan le xen ke");
+        printf("\ne. Mang chua chan le xen ke");
     }
     else {
-        printf("\nd. Mang khong chua chan le xen ke");
+        printf("\ne. Mang khong chua chan le xen ke");
     }
 }
 
