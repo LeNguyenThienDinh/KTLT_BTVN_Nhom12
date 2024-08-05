@@ -441,6 +441,28 @@ void lietKeDongToanGiaTriChan(int **mt, int m, int n)
 	}
 }
 
+void lietKeDongGiaTriGiamDan(int **mt, int m, int n)
+{
+	printf("Chi so cac dong chua gia tri giam dan la: \n");
+	for (int i = 0; i < m; ++i)
+	{
+		bool giamDan = true;
+		for (int j = 0; j < n - 1; ++j)
+		{
+			if (mt[i][j] < mt[i][j + 1])
+			{
+				giamDan = false;
+				break;
+			}
+		}
+		if (giamDan)
+		{
+			printf("%d\n", i);
+		}
+	}
+}
+
+
 //============================xu_li_main
 int main()
 {
@@ -490,6 +512,7 @@ int main()
 		printf("15. Sap xep ma tran cho cot le tang cot chan giam \n");
 		printf("16. Kiem tra dong cot giam dan theo ziczac \n");
 		printf("17. Liet ke dong toan gia tri chan \n");
+		printf("18. Liet ke dong gia tri giam dan \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -563,6 +586,9 @@ int main()
 			break;
 		case 17:
 			lietKeDongToanGiaTriChan(mt, m, n);
+			break;
+		case 18:
+			lietKeDongGiaTriGiamDan(mt, m, n);
 			break;
 		}
 	}
