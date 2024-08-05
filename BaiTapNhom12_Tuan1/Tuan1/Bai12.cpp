@@ -76,6 +76,24 @@ void xoaPhanTuTaiViTriK(PhanSo*& arr, int& n, int k) {
     }
 }
 
+void themPhanTuXTaiViTriK(PhanSo*& arr, int& n, int k, PhanSo x) {
+    if (k < 0 || k > n) {
+        printf("Vi tri k khong hop le.\n");
+        return;
+    }
+    arr = (PhanSo*)realloc(arr, (n + 1) * sizeof(PhanSo));
+    if (arr == NULL) {
+        printf("Cap phat bo nho that bai\n");
+        exit(1);
+    }
+    for (int i = n; i > k; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[k] = x;
+    n++;
+}
+
+
 void bai12() {
     PhanSo* arr;
     int n;
