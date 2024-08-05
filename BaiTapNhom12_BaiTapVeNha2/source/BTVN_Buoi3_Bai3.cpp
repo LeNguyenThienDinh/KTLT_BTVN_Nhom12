@@ -400,6 +400,25 @@ void sapXepMaTranTheoCot(int **mt, int m, int n)
 		}
 	}
 }
+
+bool kiemTraZigzag(int **mt, int m, int n)
+{
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			if (i > 0 && mt[i][j] >= mt[i - 1][j])
+			{
+				return false;
+			}
+			if (j > 0 && mt[i][j] >= mt[i][j - 1])
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
 //============================xu_li_main
 int main()
 {
@@ -447,6 +466,7 @@ int main()
 		printf("13. In phan tu cuc tieu \n");
 		printf("14. Sap xep ma tran cho dong le tang dong chan giam \n");
 		printf("15. Sap xep ma tran cho cot le tang cot chan giam \n");
+		printf("16. Kiem tra dong cot giam dan theo ziczac \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -507,6 +527,16 @@ int main()
 			sapXepMaTranTheoCot(mt, m, n);
 			printf("Ma tran sau khi sap xep theo cot la:\n");
 			xuatMatran(mt, m, n);
+			break;
+		case 16:
+			if (kiemTraZigzag(mt, m, n))
+			{
+				printf("Ma tran giam dan theo cot va dong (zigzag)\n");
+			}
+			else
+			{
+				printf("Ma tran khong giam dan theo cot va dong (zigzag)\n");
+			}
 			break;
 		}
 	}
