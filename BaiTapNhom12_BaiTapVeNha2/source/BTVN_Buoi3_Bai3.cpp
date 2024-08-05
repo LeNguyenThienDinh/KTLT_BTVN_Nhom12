@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -220,6 +220,37 @@ void xuatCacCotChiChuaSoLe(int **mt, int m, int n)
 	}
 }
 
+int timMaxTrenBien(int **mt, int m, int n)
+{
+	int maxBien = mt[0][0]; 
+	
+	for (int j = 0; j < n; ++j)
+	{
+		if (mt[0][j] > maxBien)
+		{
+			maxBien = mt[0][j];
+		}
+		if (mt[m - 1][j] > maxBien)
+		{
+			maxBien = mt[m - 1][j];
+		}
+	}
+
+	for (int i = 0; i < m; ++i)
+	{
+		if (mt[i][0] > maxBien)
+		{
+			maxBien = mt[i][0];
+		}
+		if (mt[i][n - 1] > maxBien)
+		{
+			maxBien = mt[i][n - 1];
+		}
+	}
+
+	return maxBien;
+}
+
 //============================xu_li_main
 int main()
 {
@@ -262,6 +293,7 @@ int main()
 		//printf("8.Tim dong toan chan\n");
 		//printf("9.Sap xep mang A tang theo tung dong\n");
 		printf("10. Xuat cac cot chi chua so le\n");
+		printf("11. Tim phan tu max cua bien ma tran \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -303,6 +335,9 @@ int main()
 			break;
 		case 10:
 			xuatCacCotChiChuaSoLe(mt, m, n);
+			break;
+		case 11:
+			printf("Phan tu lon nhat tren bien ma tran la: %d\n", timMaxTrenBien(mt, m, n));
 			break;
 		}
 	}
