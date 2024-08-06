@@ -177,3 +177,23 @@ HonSo tongHonSo(HonSo b[], int n) {
     }
     return tong;
 }
+//9. Tìm phần tử lớn nhất/nhỏ nhất của b. 
+HonSo timMax(HonSo b[], int n) {
+    HonSo max = b[0];
+    for (int i = 1; i < n; i++) {
+        if (b[i].phan_nguyen > max.phan_nguyen || (b[i].phan_nguyen == max.phan_nguyen && b[i].tu_so > max.tu_so)) {
+            max = b[i];
+        }
+    }
+    return max;
+}
+ 
+HonSo timMin(HonSo b[], int n) {
+    HonSo min = b[0];
+    for (int i = 1; i < n; i++) {
+        if (b[i].phan_nguyen < min.phan_nguyen || (b[i].phan_nguyen == min.phan_nguyen && b[i].tu_so < min.tu_so)) {
+            min = b[i];
+        }
+    }
+    return min;
+}
