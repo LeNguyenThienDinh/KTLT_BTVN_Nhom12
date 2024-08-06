@@ -95,7 +95,7 @@ void xuatDanhSachHonSo(HonSo b[], int n) {
     }
     printf("\n");
 }
-
+//1. Tìm hỗn số x trong mảng b theo giải thuật Linear Search.
 int linearSearch(HonSo b[], int n, HonSo x) {
     for (int i = 0; i < n; i++) {
         if (b[i].phan_nguyen == x.phan_nguyen && b[i].tu_so == x.tu_so && b[i].mau_so == x.mau_so) {
@@ -104,6 +104,7 @@ int linearSearch(HonSo b[], int n, HonSo x) {
     }
     return -1;
 }
+//2. Sắp xếp b sao cho các phần tử có phần nguyên chẵn lên đầu, phần tử có phần nguyên lẻ ở cuối mảng.
 void sapXepChanLe(HonSo b[], int n) {
     int left = 0, right = n - 1;
     while (left < right) {
@@ -119,4 +120,18 @@ void sapXepChanLe(HonSo b[], int n) {
             b[right] = temp;
         }
     }
+}
+//3. Tìm hỗn số x theo giải thuật binary search trong mảng b đã được sắp xếp tang/giảm. 
+int binarySearch(HonSo b[], int left, int right, HonSo x) {
+    if (right >= left) {
+        int mid = left + (right - left) / 2;
+        if (b[mid].phan_nguyen == x.phan_nguyen && b[mid].tu_so == x.tu_so && b[mid].mau_so == x.mau_so) {
+            return mid;
+        }
+        if (b[mid].phan_nguyen < x.phan_nguyen || (b[mid].phan_nguyen == x.phan_nguyen && b[mid].tu_so < x.tu_so)) {
+            return binarySearch(b, mid + 1, right, x);
+        }
+        return binarySearch(b, left, mid - 1, x);
+    }
+    return -1;
 }
