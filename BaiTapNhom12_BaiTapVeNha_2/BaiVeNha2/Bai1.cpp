@@ -63,6 +63,22 @@ int sumOfFirstDigitOdd(int a[], int n) {
     }
     return sum;
 }
+// Hàm đếm số lần xuất hiện của các phần tử trong mảng
+void countOccurrences(int a[], int n) {
+    printf("So lan xuat hien cua cac phan tu trong mang:\n");
+    for (int i = 0; i < n; ++i) {
+        int count = 1;
+        if (a[i] != -1) {
+            for (int j = i + 1; j < n; ++j) {
+                if (a[i] == a[j]) {
+                    count++;
+                    a[j] = -1;
+                }
+            }
+            printf("%d xuat hien %d lan\n", a[i], count);
+        }
+    }
+}
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
 void displayMenu(int a[], int n) {
