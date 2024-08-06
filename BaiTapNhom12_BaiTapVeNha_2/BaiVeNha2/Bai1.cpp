@@ -200,6 +200,37 @@ int containsDigits(int number, int x) {
     }
     return 1;
 }
+// Hàm sắp xếp mảng sao cho các phần tử chẵn tăng dần, các phần tử lẻ giữ nguyên vị trí
+void sortEvenAscending(int a[], int n) {
+    int evenIdx = 0;
+    int temp[MAX_SIZE];
+
+    // Lọc các số chẵn vào mảng tạm
+    for (int i = 0; i < n; ++i) {
+        if (a[i] % 2 == 0) {
+            temp[evenIdx++] = a[i];
+        }
+    }
+
+    // Sắp xếp mảng chẵn
+    for (int i = 0; i < evenIdx - 1; ++i) {
+        for (int j = i + 1; j < evenIdx; ++j) {
+            if (temp[i] > temp[j]) {
+                int swap = temp[i];
+                temp[i] = temp[j];
+                temp[j] = swap;
+            }
+        }
+    }
+
+    // Gán lại các số chẵn đã sắp xếp vào mảng ban đầu
+    int idx = 0;
+    for (int i = 0; i < n; ++i) {
+        if (a[i] % 2 == 0) {
+            a[i] = temp[idx++];
+        }
+    }
+}
 
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
