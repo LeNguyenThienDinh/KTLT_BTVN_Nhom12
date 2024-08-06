@@ -197,3 +197,13 @@ HonSo timMin(HonSo b[], int n) {
     }
     return min;
 }
+//10. Xuất vị trí phần tử có phần nguyên chẵn của b.
+void xuatViTriChan(HonSo b[], int n) {
+    printf("Vi tri cac hon so co phan nguyen chan:\n");
+    for (int i = 0; i < n; i++) {
+        if (b[i].phan_nguyen % 2 == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
