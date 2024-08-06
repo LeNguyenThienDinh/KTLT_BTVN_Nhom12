@@ -522,6 +522,37 @@ void timChuSoXuatHienNhieuNhat(int **mt, int m, int n)
 	}
 	printf("\n");
 }
+void lietKeCotCoTongNhoNhat(int **mt, int m, int n)
+{
+	int minSum = INT_MAX;
+	for (int j = 0; j < n; ++j)
+	{
+		int sum = 0;
+		for (int i = 0; i < m; ++i)
+		{
+			sum += mt[i][j];
+		}
+		if (sum < minSum)
+		{
+			minSum = sum;
+		}
+	}
+	printf("Cac cot co tong nho nhat la: ");
+	for (int j = 0; j < n; ++j)
+	{
+		int sum = 0;
+		for (int i = 0; i < m; ++i)
+		{
+			sum += mt[i][j];
+		}
+		if (sum == minSum)
+		{
+			printf("%d ", j);
+		}
+	}
+	printf("\n");
+}
+
 //============================xu_li_main
 int main()
 {
@@ -574,6 +605,7 @@ int main()
 		printf("18. Liet ke dong gia tri giam dan \n");
 		printf("19. Tim gia tri xuat hien nhieu nhat trong ma tran \n");
 		printf("20. Tim chu so xuat hien nhieu nhat \n");
+		printf("21. Liet ke cot co tong nho nhat \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -656,6 +688,9 @@ int main()
 			break;
 		case 20:
 			timChuSoXuatHienNhieuNhat(mt, m, n);
+			break;
+		case 21:
+			lietKeCotCoTongNhoNhat(mt, m, n);
 			break;
 		}
 	}
