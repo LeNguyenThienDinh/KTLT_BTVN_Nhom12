@@ -49,6 +49,20 @@ void findPrimesLessThan(int a[], int n) {
     }
     printf("\n");
 }
+// Hàm tính tổng các phần tử có chữ số đầu là chữ số lẻ
+int sumOfFirstDigitOdd(int a[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int firstDigit = abs(a[i]);
+        while (firstDigit >= 10) {
+            firstDigit /= 10;
+        }
+        if (firstDigit % 2 != 0) {
+            sum += a[i];
+        }
+    }
+    return sum;
+}
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
 void displayMenu(int a[], int n) {
