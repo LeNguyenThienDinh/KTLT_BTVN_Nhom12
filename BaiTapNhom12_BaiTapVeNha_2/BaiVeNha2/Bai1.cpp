@@ -180,6 +180,26 @@ int secondSmallest(int a[], int n) {
 
     return second;
 }
+// Hàm kiểm tra xem một số có chứa các chữ số của x không
+int containsDigits(int number, int x) {
+    while (x > 0) {
+        int digit = x % 10;
+        int found = 0;
+        int temp = number;
+        while (temp > 0) {
+            if (temp % 10 == digit) {
+                found = 1;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!found) {
+            return 0;
+        }
+        x /= 10;
+    }
+    return 1;
+}
 
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
