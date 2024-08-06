@@ -104,3 +104,19 @@ int linearSearch(HonSo b[], int n, HonSo x) {
     }
     return -1;
 }
+void sapXepChanLe(HonSo b[], int n) {
+    int left = 0, right = n - 1;
+    while (left < right) {
+        while (left < n && b[left].phan_nguyen % 2 == 0) {
+            left++;
+        }
+        while (right >= 0 && b[right].phan_nguyen % 2 != 0) {
+            right--;
+        }
+        if (left < right) {
+            HonSo temp = b[left];
+            b[left] = b[right];
+            b[right] = temp;
+        }
+    }
+}
