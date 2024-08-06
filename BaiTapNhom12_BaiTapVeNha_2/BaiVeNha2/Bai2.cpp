@@ -135,3 +135,12 @@ int binarySearch(HonSo b[], int left, int right, HonSo x) {
     }
     return -1;
 }
+//4. Chia mảng b thành 2 mảng s1 và s2, với s1 chứa các phần nguyên, s2 chứa phân số.
+void chiaMang(HonSo b[], int n, int s1[], HonSo s2[]) {
+    for (int i = 0; i < n; i++) {
+        s1[i] = b[i].phan_nguyen;
+        s2[i].phan_nguyen = 0;
+        s2[i].tu_so = b[i].tu_so;
+        s2[i].mau_so = b[i].mau_so;
+    }
+}
