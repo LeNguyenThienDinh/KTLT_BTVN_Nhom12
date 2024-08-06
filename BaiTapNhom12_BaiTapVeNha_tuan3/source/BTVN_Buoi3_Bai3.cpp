@@ -552,11 +552,29 @@ void lietKeCotCoTongNhoNhat(int **mt, int m, int n)
 	}
 	printf("\n");
 }
+void hoanViHaiCot(int **mt, int m, int col1, int col2)
+{
+	for (int i = 0; i < m; ++i)
+	{
+		int temp = mt[i][col1];
+		mt[i][col1] = mt[i][col2];
+		mt[i][col2] = temp;
+	}
 
+}
+void hoanViHaiDong(int **mt, int row1, int row2, int n)
+{
+	for (int j = 0; j < n; ++j)
+	{
+		int temp = mt[row1][j];
+		mt[row1][j] = mt[row2][j];
+		mt[row2][j] = temp;
+	}
+}
 //============================xu_li_main
 int main()
 {
-	int m, n, thap, cao, chon;
+	int m, n, thap, cao, chon, i,j,k,l;
 	int **mt = NULL;
 	printf("Nhap vao so dong: \n");
 	scanf("%d", &m);
@@ -606,6 +624,8 @@ int main()
 		printf("19. Tim gia tri xuat hien nhieu nhat trong ma tran \n");
 		printf("20. Tim chu so xuat hien nhieu nhat \n");
 		printf("21. Liet ke cot co tong nho nhat \n");
+		printf("22. Hoan vi 2 cot trong ma tran \n");
+		printf("23. Hoan vi 2 dong trong ma tran \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -691,6 +711,24 @@ int main()
 			break;
 		case 21:
 			lietKeCotCoTongNhoNhat(mt, m, n);
+			break;
+		case 22:
+			printf("Nhap chi so cot thu nhat: ");
+			scanf("%d", &i);
+			printf("Nhap chi so cot thu hai: ");
+			scanf("%d", &j);
+			hoanViHaiCot(mt, m, i, j);
+			printf("Ma tran sau khi hoan vi hai cot:\n");
+			xuatMatran(mt, m, n);
+			break;
+		case 23:
+			printf("Nhap chi so dong thu nhat: ");
+			scanf("%d", &k);
+			printf("Nhap chi so dong thu hai: ");
+			scanf("%d", &l);
+			hoanViHaiDong(mt, k, l, n);
+			printf("Ma tran sau khi hoan vi hai dong:\n");
+			xuatMatran(mt, m, n);
 			break;
 		}
 	}
