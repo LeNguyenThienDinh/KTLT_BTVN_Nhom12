@@ -1,0 +1,7 @@
+Nguyen Van An    0123456789  2   3   Avengers: Endgame   Phong 1     19:00  140000
+Le Thi Kim Hoa   0123456783  1   2   Spider-Man: No Way Home     Phong 2     20:00  80000
+Nguyen Van Anh    0123456785  1   1   Avengers: Endgame   Phong 1     19:00  140000
+Ly Thi Mai   01234567897  1   2   Spider-Man: No Way Home     Phong 2     20:00  80000
+Le Thi Kim Oanh   0123456786  1   2   Spider-Man: No Way Home     Phong 2     20:00  80000
+Nguyen Thi Ha    0123456782  1   1   Avengers: Endgame   Phong 1     19:00  140000
+Ly Thi Mai   01234567890  1   2   Spider-Man: No Way Home     Phong 2     20:00  80000
