@@ -161,3 +161,9 @@ void themHonSo(HonSo b[], int* n, HonSo x, int k) {
     b[k] = x;
     (*n)++;
 }
+//7. Tạo mảng c chứa các phần tử là phân số được đổi từ các phần tử hỗn số của mảng b.
+void taoMangPhanSo(HonSo b[], int n, float c[]) {
+    for (int i = 0; i < n; i++) {
+        c[i] = (float)b[i].tu_so / b[i].mau_so;
+    }
+}
