@@ -144,3 +144,11 @@ void chiaMang(HonSo b[], int n, int s1[], HonSo s2[]) {
         s2[i].mau_so = b[i].mau_so;
     }
 }
+//5. Xóa phần tử thứ k trong mảng b. 
+void xoaPhanTu(HonSo b[], int* n, int k) {
+    if (k < 0 || k >= *n) return;
+    for (int i = k; i < *n - 1; i++) {
+        b[i] = b[i + 1];
+    }
+    (*n)--;
+}
