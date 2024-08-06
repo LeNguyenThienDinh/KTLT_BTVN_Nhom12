@@ -79,6 +79,54 @@ void countOccurrences(int a[], int n) {
         }
     }
 }
+// Hàm sắp xếp mảng có số chẵn tăng dần, số lẻ giảm dần
+void sortEvenOdd(int a[], int n) {
+    int evenCount = 0;
+    int oddCount = 0;
+    int even[MAX_SIZE], odd[MAX_SIZE];
+
+    // Phân loại phần tử chẵn và lẻ
+    for (int i = 0; i < n; ++i) {
+        if (a[i] % 2 == 0) {
+            even[evenCount++] = a[i];
+        }
+        else {
+            odd[oddCount++] = a[i];
+        }
+    }
+
+    // Sắp xếp mảng chẵn tăng dần
+    for (int i = 0; i < evenCount - 1; ++i) {
+        for (int j = i + 1; j < evenCount; ++j) {
+            if (even[i] > even[j]) {
+                int temp = even[i];
+                even[i] = even[j];
+                even[j] = temp;
+            }
+        }
+    }
+
+    // Sắp xếp mảng lẻ giảm dần
+    for (int i = 0; i < oddCount - 1; ++i) {
+        for (int j = i + 1; j < oddCount; ++j) {
+            if (odd[i] < odd[j]) {
+                int temp = odd[i];
+                odd[i] = odd[j];
+                odd[j] = temp;
+            }
+        }
+    }
+
+    // Gộp mảng đã sắp xếp
+    int index = 0;
+    for (int i = 0; i < evenCount; ++i) {
+        a[index++] = even[i];
+    }
+    for (int i = 0; i < oddCount; ++i) {
+        a[index++] = odd[i];
+    }
+}
+
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
 void displayMenu(int a[], int n) {
