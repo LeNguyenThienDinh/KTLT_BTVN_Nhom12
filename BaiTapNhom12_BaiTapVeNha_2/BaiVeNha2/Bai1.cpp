@@ -231,7 +231,26 @@ void sortEvenAscending(int a[], int n) {
         }
     }
 }
+// Hàm sắp xếp mảng sao cho số lẻ ở đầu mảng, số chẵn ở cuối mảng
+void sortOddEven(int a[], int n) {
+    int left = 0, right = n - 1;
 
+    while (left < right) {
+        while (a[left] % 2 != 0 && left < right) {
+            left++;
+        }
+        while (a[right] % 2 == 0 && left < right) {
+            right--;
+        }
+        if (left < right) {
+            int temp = a[left];
+            a[left] = a[right];
+            a[right] = temp;
+            left++;
+            right--;
+        }
+    }
+}
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
 void displayMenu(int a[], int n) {
