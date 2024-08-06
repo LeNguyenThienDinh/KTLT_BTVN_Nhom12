@@ -148,6 +148,34 @@ void sapXepDuongCheoChinh(int **maTran, int n)
 	free(arr);
 }
 
+void sapXepDuongCheoPhu(int **maTran, int n, int tangDan)
+{
+	int *arr = (int *)malloc(n * sizeof(int));
+	for (int i = 0; i < n; ++i)
+	{
+		arr[i] = maTran[i][n - i - 1];
+	}
+
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if ((tangDan && arr[i] > arr[j]) || (!tangDan && arr[i] < arr[j]))
+			{
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; ++i)
+	{
+		maTran[i][n - i - 1] = arr[i];
+	}
+	free(arr);
+}
+
 //== == == == == == == == == == == == == xu_li_main == == == == == == == == == == == == == == == ==
 int main()
 {
@@ -188,7 +216,8 @@ int main()
 		printf("4. tim phan tu max thuoc tam giac tren cua duong cheo chinh\n");
 		printf("5. sap xep ma tran tang dan theo kieu zic-zac\n");
 		printf("6. sap xep duong cheo chinh tang dan tu tren xuong duoi\n");
-		printf("7. thoat\n");
+		printf("7. Sap xep duong cheo phu tang/giam dan\n");
+		printf("13. thoat\n");
 		printf("nhap lua chon: ");
 		scanf("%d", &luaChon);
 
@@ -219,12 +248,10 @@ int main()
 			inMaTranVuong(maTran, n);
 			break;
 		case 7:
-			for (int i = 0; i < n; ++i) {
-				free(maTran[i]);
-			}
-			free(maTran);
-			printf("thoat chuong trinh.\n");
-			return 0;
+			sapXepDuongCheoPhu(maTran, n, 1);
+			printf("ma tran sau khi sap xep duong cheo phu la:\n");
+			inMaTranVuong(maTran, n);
+			break;
 		default:
 			printf("lua chon khong hop le hay nhap lai\n");
 		}
