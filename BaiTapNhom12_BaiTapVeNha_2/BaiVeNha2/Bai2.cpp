@@ -207,3 +207,22 @@ void xuatViTriChan(HonSo b[], int n) {
     }
     printf("\n");
 }
+//11. Xuất vị trí của phần tử lớn nhất / nhỏ nhất của b.
+void xuatViTriMaxMin(HonSo b[], int n) {
+    HonSo max = timMax(b, n);
+    HonSo min = timMin(b, n);
+    printf("Vi tri cac hon so lon nhat:\n");
+    for (int i = 0; i < n; i++) {
+        if (b[i].phan_nguyen == max.phan_nguyen && b[i].tu_so == max.tu_so && b[i].mau_so == max.mau_so) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    printf("Vi tri cac hon so nho nhat:\n");
+    for (int i = 0; i < n; i++) {
+        if (b[i].phan_nguyen == min.phan_nguyen && b[i].tu_so == min.tu_so && b[i].mau_so == min.mau_so) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
