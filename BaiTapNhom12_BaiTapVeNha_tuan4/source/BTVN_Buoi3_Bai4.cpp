@@ -270,6 +270,19 @@ void diChuyenChanLenTrenLeXuongDuoi(int **maTran, int n)
 	free(arrChan);
 	free(arrLe);
 }
+
+int kiemTraDoiXungDuongCheoChinh(int **maTran, int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < i; ++j)
+		{
+			if (maTran[i][j] != maTran[j][i])
+				return 0;
+		}
+	}
+	return 1;
+}
 //== == == == == == == == == == == == == xu_li_main == == == == == == == == == == == == == == == ==
 int main()
 {
@@ -315,6 +328,7 @@ int main()
 		printf("9. sap xep dong le giam dong chan tang\n");
 		printf("10. sap xep duong cheo chinh va song song tang dan\n");
 		printf("11. Dua le len tren chan xuong duoi\n");
+		printf("12. Kiem tra ma tran co doi xung qua duong cheo chinh khong\n");
 		printf("13. thoat\n");
 		printf("nhap lua chon: ");
 		scanf("%d", &luaChon);
@@ -369,6 +383,12 @@ int main()
 			diChuyenChanLenTrenLeXuongDuoi(maTran, n);
 			printf("ma tran sau khi di chuyen chan len tren le xuong duoi la:\n");
 			inMaTranVuong(maTran, n);
+			break;
+		case 12:
+			if (kiemTraDoiXungDuongCheoChinh(maTran, n))
+				printf("cac phan tu trong ma tran doi xung qua duong cheo chinh.\n");
+			else
+				printf("cac phan tu trong ma tran khong doi xung qua duong cheo chinh.\n");
 			break;
 		default:
 			printf("lua chon khong hop le hay nhap lai\n");
