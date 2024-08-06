@@ -237,6 +237,39 @@ void sapXepCheoChinhVaSongSong(int **maTran, int n)
 		}
 	}
 }
+
+void diChuyenChanLenTrenLeXuongDuoi(int **maTran, int n)
+{
+	int *arrChan = (int *)malloc(n * n * sizeof(int));
+	int *arrLe = (int *)malloc(n * n * sizeof(int));
+	int chanCount = 0, leCount = 0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			if (maTran[i][j] % 2 == 0)
+				arrChan[chanCount++] = maTran[i][j];
+			else
+				arrLe[leCount++] = maTran[i][j];
+		}
+	}
+
+	int k = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			if (k < chanCount)
+				maTran[i][j] = arrChan[k++];
+			else
+				maTran[i][j] = arrLe[k++ - chanCount];
+		}
+	}
+
+	free(arrChan);
+	free(arrLe);
+}
 //== == == == == == == == == == == == == xu_li_main == == == == == == == == == == == == == == == ==
 int main()
 {
@@ -280,6 +313,8 @@ int main()
 		printf("7. Sap xep duong cheo phu tang/giam dan\n");
 		printf("8, sap xep dong le tang dong chan giam\n");
 		printf("9. sap xep dong le giam dong chan tang\n");
+		printf("10. sap xep duong cheo chinh va song song tang dan\n");
+		printf("11. Dua le len tren chan xuong duoi\n");
 		printf("13. thoat\n");
 		printf("nhap lua chon: ");
 		scanf("%d", &luaChon);
@@ -328,6 +363,11 @@ int main()
 		case 10:
 			sapXepCheoChinhVaSongSong(maTran, n);
 			printf("ma tran sau khi sap xep cac duong cheo chinh va song song la:\n");
+			inMaTranVuong(maTran, n);
+			break;
+		case 11:
+			diChuyenChanLenTrenLeXuongDuoi(maTran, n);
+			printf("ma tran sau khi di chuyen chan len tren le xuong duoi la:\n");
 			inMaTranVuong(maTran, n);
 			break;
 		default:
