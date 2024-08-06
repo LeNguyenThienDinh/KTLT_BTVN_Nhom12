@@ -158,6 +158,28 @@ void longestDecreasingSubarray(int a[], int n) {
     }
     printf("\n");
 }
+// Hàm tìm số nhỏ thứ 2 trong mảng
+int secondSmallest(int a[], int n) {
+    if (n < 2) {
+        printf("Mang khong du so phan tu de tim so nho thu 2.\n");
+        return -1;
+    }
+
+    int first, second;
+    first = second = INT_MAX;
+
+    for (int i = 0; i < n; ++i) {
+        if (a[i] < first) {
+            second = first;
+            first = a[i];
+        }
+        else if (a[i] < second && a[i] != first) {
+            second = a[i];
+        }
+    }
+
+    return second;
+}
 
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
