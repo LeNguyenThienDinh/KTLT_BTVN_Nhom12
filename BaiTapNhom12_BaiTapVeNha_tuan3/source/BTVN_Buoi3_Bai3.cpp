@@ -489,7 +489,39 @@ int timGiaTriXuatHienNhieuNhat(int **mt, int m, int n)
 	}
 	return maxVal;
 }
-
+void timChuSoXuatHienNhieuNhat(int **mt, int m, int n)
+{
+	int demChuSo[10] = { 0 };
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			int giaTri = mt[i][j];
+			while (giaTri > 0)
+			{
+				demChuSo[giaTri % 10]++;
+				giaTri /= 10;
+			}
+		}
+	}
+	int maxCount = 0;
+	for (int i = 0; i < 10; ++i)
+	{
+		if (demChuSo[i] > maxCount)
+		{
+			maxCount = demChuSo[i];
+		}
+	}
+	printf("Cac chu so xuat hien nhieu nhat la: ");
+	for (int i = 0; i < 10; ++i)
+	{
+		if (demChuSo[i] == maxCount)
+		{
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+}
 //============================xu_li_main
 int main()
 {
@@ -541,6 +573,7 @@ int main()
 		printf("17. Liet ke dong toan gia tri chan \n");
 		printf("18. Liet ke dong gia tri giam dan \n");
 		printf("19. Tim gia tri xuat hien nhieu nhat trong ma tran \n");
+		printf("20. Tim chu so xuat hien nhieu nhat \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -620,6 +653,9 @@ int main()
 			break;
 		case 19:
 			printf("Gia tri xuat hien nhieu nhat la: %d\n", timGiaTriXuatHienNhieuNhat(mt, m, n));
+			break;
+		case 20:
+			timChuSoXuatHienNhieuNhat(mt, m, n);
 			break;
 		}
 	}
