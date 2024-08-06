@@ -213,6 +213,30 @@ void sapXepCotLeGiamChanTang(int **maTran, int n)
 		}
 	}
 }
+void sapXepCheoChinhVaSongSong(int **maTran, int n)
+{
+	for (int k = 0; k < n; ++k)
+	{
+		for (int i = 0; i < n - k; ++i)
+		{
+			for (int j = i + 1; j < n - k; ++j)
+			{
+				if (maTran[i][i + k] > maTran[j][j + k])
+				{
+					int temp = maTran[i][i + k];
+					maTran[i][i + k] = maTran[j][j + k];
+					maTran[j][j + k] = temp;
+				}
+				if (k != 0 && maTran[i + k][i] > maTran[j + k][j])
+				{
+					int temp = maTran[i + k][i];
+					maTran[i + k][i] = maTran[j + k][j];
+					maTran[j + k][j] = temp;
+				}
+			}
+		}
+	}
+}
 //== == == == == == == == == == == == == xu_li_main == == == == == == == == == == == == == == == ==
 int main()
 {
@@ -299,6 +323,11 @@ int main()
 		case 9:
 			sapXepCotLeGiamChanTang(maTran, n);
 			printf("ma tran sau khi sap xep cot le giam chan tang la:\n");
+			inMaTranVuong(maTran, n);
+			break;
+		case 10:
+			sapXepCheoChinhVaSongSong(maTran, n);
+			printf("ma tran sau khi sap xep cac duong cheo chinh va song song la:\n");
 			inMaTranVuong(maTran, n);
 			break;
 		default:
