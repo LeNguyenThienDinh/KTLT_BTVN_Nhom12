@@ -126,6 +126,38 @@ void sortEvenOdd(int a[], int n) {
         a[index++] = odd[i];
     }
 }
+// Hàm tìm dãy con giảm dài nhất trong mảng
+void longestDecreasingSubarray(int a[], int n) {
+    int maxLen = 1;
+    int currentLen = 1;
+    int endIndex = 0;
+
+    for (int i = 1; i < n; ++i) {
+        if (a[i] < a[i - 1]) {
+            currentLen++;
+        }
+        else {
+            if (currentLen > maxLen) {
+                maxLen = currentLen;
+                endIndex = i - 1;
+            }
+            currentLen = 1;
+        }
+    }
+
+    // Kiểm tra dãy con cuối cùng
+    if (currentLen > maxLen) {
+        maxLen = currentLen;
+        endIndex = n - 1;
+    }
+
+    // In ra dãy con giảm dài nhất
+    printf("Day con giam dai nhat trong mang la: ");
+    for (int i = endIndex - maxLen + 1; i <= endIndex; ++i) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
 
 
 // Hàm hiển thị menu và xử lý lựa chọn của người dùng
