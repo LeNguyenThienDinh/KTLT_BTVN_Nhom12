@@ -462,6 +462,33 @@ void lietKeDongGiaTriGiamDan(int **mt, int m, int n)
 	}
 }
 
+int timGiaTriXuatHienNhieuNhat(int **mt, int m, int n)
+{
+	int maxVal = mt[0][0], maxCount = 0;
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			int count = 0;
+			for (int k = 0; k < m; ++k)
+			{
+				for (int l = 0; l < n; ++l)
+				{
+					if (mt[i][j] == mt[k][l])
+					{
+						count++;
+					}
+				}
+			}
+			if (count > maxCount)
+			{
+				maxCount = count;
+				maxVal = mt[i][j];
+			}
+		}
+	}
+	return maxVal;
+}
 
 //============================xu_li_main
 int main()
@@ -513,6 +540,7 @@ int main()
 		printf("16. Kiem tra dong cot giam dan theo ziczac \n");
 		printf("17. Liet ke dong toan gia tri chan \n");
 		printf("18. Liet ke dong gia tri giam dan \n");
+		printf("19. Tim gia tri xuat hien nhieu nhat trong ma tran \n");
 		printf("0. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -589,6 +617,9 @@ int main()
 			break;
 		case 18:
 			lietKeDongGiaTriGiamDan(mt, m, n);
+			break;
+		case 19:
+			printf("Gia tri xuat hien nhieu nhat la: %d\n", timGiaTriXuatHienNhieuNhat(mt, m, n));
 			break;
 		}
 	}
