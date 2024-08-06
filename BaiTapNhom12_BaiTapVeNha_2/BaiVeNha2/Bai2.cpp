@@ -152,3 +152,12 @@ void xoaPhanTu(HonSo b[], int* n, int k) {
     }
     (*n)--;
 }
+//6. Thêm hỗn số x vào mảng b tại vị trí k. 
+void themHonSo(HonSo b[], int* n, HonSo x, int k) {
+    if (k < 0 || k > *n) return;
+    for (int i = *n; i > k; i--) {
+        b[i] = b[i - 1];
+    }
+    b[k] = x;
+    (*n)++;
+}
