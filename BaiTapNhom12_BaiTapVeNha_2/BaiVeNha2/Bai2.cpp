@@ -167,3 +167,13 @@ void taoMangPhanSo(HonSo b[], int n, float c[]) {
         c[i] = (float)b[i].tu_so / b[i].mau_so;
     }
 }
+//8. Tính tổng các phần tử của mảng b. 
+HonSo tongHonSo(HonSo b[], int n) {
+    HonSo tong = { 0, 0, 1 };
+    for (int i = 0; i < n; i++) {
+        tong.phan_nguyen += b[i].phan_nguyen;
+        tong.tu_so = tong.tu_so * b[i].mau_so + b[i].tu_so * tong.mau_so;
+        tong.mau_so *= b[i].mau_so;
+    }
+    return tong;
+}
